@@ -1,21 +1,40 @@
-import { Button } from "@/components/ui/button"
+import Navbar from "@/components/navbar"
+import Hero from "@/components/hero";
+import AboutMe from "@/components/about-me";
+import Experience from "@/components/experience";
+import Skills from "@/components/skills";
+import Projects from "@/components/projects";
+import Contact from "@/components/contact";
 
 export function App() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
+    <div className="min-h-screen bg-background text-foreground">
+      <Navbar />
+
+      <main className="mx-auto w-full max-w-6xl space-y-12 px-6 pb-16 md:px-10">
+        <Hero />
+
+        <div className="grid items-start gap-6 lg:grid-cols-3">
+          <div className="space-y-6 lg:col-span-2">
+            <AboutMe />
+            <Experience />
+          </div>
+
+          <Skills />
         </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
+
+        <Projects />
+
+        <Contact email="mirmuxammadmirxamidov@gmail.com" />
+      </main>
+
+      <footer className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 py-6 text-center text-sm text-muted-foreground md:px-10">
+          © {new Date().getFullYear()} Mirmukhammad Mirxamidov
         </div>
-      </div>
+      </footer>
     </div>
-  )
+  );
 }
 
 export default App
