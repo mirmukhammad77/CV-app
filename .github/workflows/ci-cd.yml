@@ -1,0 +1,96 @@
+name: CV App CI/CD
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  APP_DIR: web
+
+jobs:
+  ci:
+    name: Lint and build
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{ env.APP_DIR }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: ${{ env.APP_DIR }}/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      # Uncomment after configuring Vitest and adding tests.
+      # - name: Run tests
+      #   run: npm run test:ci
+
+      - name: Build website
+        run: npm run build
+
+      - name: Save production build
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-website
+          path: ${{ env.APP_DIR }}/dist/
+          if-no-files-found: error
+          retention-days: 7
+
+  deploy:
+    name: Deploy to AWS
+    needs: ci
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    concurrency:
+      group: cv-production-deployment
+      cancel-in-progress: false
+
+    env:
+      S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
+      CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}
+
+    steps:
+      - name: Download production build
+        uses: actions/download-artifact@v4
+        with:
+          name: cv-website
+          path: dist
+
+      - name: Authenticate with AWS
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Upload website to S3
+        run: |
+          aws s3 sync dist/ "s3://${S3_BUCKET_NAME}/" --delete
+
+      - name: Refresh CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" \
+            --paths "/*"

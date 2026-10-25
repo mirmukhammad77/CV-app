@@ -22,3 +22,18 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Downloaded Terraform providers and modules
+**/.terraform/
+
+# Local Terraform state
+*.tfstate
+*.tfstate.*
+
+# Saved execution plans
+*.tfplan
+tfplan
+
+# Local variable values
+*.tfvars
+*.tfvars.json
