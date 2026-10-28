@@ -6,7 +6,18 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
-const technologies = ["React", "TypeScript", "NestJS"];
+const technologies = [
+    "Full-Stack Development",
+    "TypeScript",
+    "React",
+    "Node.js",
+    "Nest.js",
+    "Database Modeling",
+    "Automated Testing (Jest, Playwright)",
+    "Third-Party API Integration",
+    "Docker",
+    "CI/CD with GitHub Actions"
+];
 
 function Hero() {
     return (
@@ -35,12 +46,12 @@ function Hero() {
                     </h1>
 
                     <p className="text-xl font-medium text-muted-foreground sm:text-2xl">
-                        Full-Stack Developer
+                        Full-Stack Software Engineer
                     </p>
                 </div>
 
                 <p className="max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    I build web applications with React, TypeScript, and NestJS.
+                    I build web applications with React, TypeScript, Node.js and NestJS.
                     I enjoy creating intuitive interfaces and reliable APIs.
                 </p>
 
@@ -86,7 +97,7 @@ function Hero() {
                     </h2>
 
                     <p className="mt-2 text-sm text-muted-foreground">
-                        Full-Stack Developer
+                        Full-Stack Software Engineer
                     </p>
 
                     <p className="mt-4 flex items-center gap-1.5 text-sm text-muted-foreground">

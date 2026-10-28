@@ -29,21 +29,7 @@ function AboutMe() {
 
                 <CardContent className="space-y-4 leading-relaxed text-muted-foreground">
                     <p>
-                        I’m a full-stack developer based in Tashkent, Uzbekistan.
-                        I work with React and TypeScript on the frontend, and
-                        NestJS and PostgreSQL on the backend.
-                    </p>
-
-                    <p>
-                        Through my internship at Vention Labs, I’ve contributed
-                        to learning management and dental management applications,
-                        working on authentication, appointment booking, and
-                        lesson management.
-                    </p>
-
-                    <p>
-                        I enjoy solving practical problems, building clean APIs,
-                        and turning ideas into useful applications.
+                        Full-Stack Software Engineer experienced in building healthcare and education applications with TypeScript, React, NestJS, and PostgreSQL. Delivers features across responsive interfaces, REST APIs, database design, authentication, and authorization. Hands-on experience integrating AWS S3, Google Maps, and Telegram bots, alongside automated testing with Jest and Playwright. Uses Docker and GitHub Actions to support development and CI workflows. Focused on maintainable code, reliable application behavior, and collaborative delivery through code reviews and Agile/Scrum practices.
                     </p>
                 </CardContent>
             </Card>

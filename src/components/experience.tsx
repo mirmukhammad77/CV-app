@@ -9,19 +9,40 @@ import {
 } from "@/components/ui/card";
 
 const technologies = [
+    "JavaScript",
     "TypeScript",
+    "React",
+    "TanStack Query",
+    "Redux",
+    "vite",
+    "Node.js",
+    "Express.js",
     "NestJS",
     "PostgreSQL",
-    "Drizzle",
+    "MongoDB",
+    "Drizzle ORM",
     "Prisma",
+    "Sequelize migrations",
     "Jest",
+    "Playwright",
+    "Test integration",
+    "Test Automation",
+    "GitHub",
+    "GitHub Actions",
+    "Linux",
+    "AWS infrastructure",
+    "Terraform"
 ];
 
 const contributions = [
-    "Developed lesson, lecture, and quiz management features for a learning management system.",
-    "Implemented appointment booking, Telegram notifications, and patient authentication for a dental management system.",
-    "Worked with database schemas, migrations, and transactional updates.",
-    "Wrote unit tests and collaborated with the team through code reviews.",
+    "Developed React interfaces and NestJS REST APIs for dental clinic and learning management platforms.",
+    "Implemented appointment booking with availability checks, conflict prevention, and role-based access controls.",
+    "Integrated Google Maps for clinic discovery and Telegram bots for patient authentication, notifications, and scheduled appointment reminders.",
+    "Built lesson, lecture, and quiz management features with transactional reordering and soft deletion.",
+    "Designed PostgreSQL schemas and maintained database migrations using Drizzle ORM, Prisma, and Sequelize.",
+    "Integrated Amazon S3 for image storage, including upload management and orphaned file cleanup.",
+    "Wrote Jest unit tests and Playwright end-to-end tests to validate business logic and application workflows.",
+    "Collaborated through code reviews, Git workflows, and Agile development practices.",
 ];
 
 function Experience() {
@@ -63,11 +84,11 @@ function Experience() {
                             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                                 <div>
                                     <h3 className="text-lg font-semibold">
-                                        Vention Labs
+                                        Vention
                                     </h3>
 
                                     <p className="mt-1 text-sm text-muted-foreground">
-                                        Developer Intern
+                                        FullStack software engineer 
                                     </p>
                                 </div>
 

@@ -1,4 +1,4 @@
-import { CodeXml, Database, Server, Wrench } from "lucide-react";
+import { CodeXml, Database, Server, Wrench, TextAlignStart, CpuAiIcon } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import {
@@ -18,6 +18,11 @@ const skillGroups = [
             "Tailwind CSS",
             "shadcn/ui",
             "TanStack Query",
+            "Redux",
+            "vite",
+            "Design Patterns",
+            "Zustand",
+            "React Router"
         ],
     },
     {
@@ -28,13 +33,33 @@ const skillGroups = [
     {
         title: "Database",
         icon: Database,
-        skills: ["PostgreSQL", "Prisma", "Drizzle ORM"],
+        skills: ["PostgreSQL", "MongoDB", "Prisma", "Drizzle ORM", "Prisma", "Sequelize migrations"],
+    },
+    {
+        title: "Testing Tools",
+        icon: TextAlignStart,
+        skills: [
+            "Jest",
+            "Playwright",
+            "end-to-end testing",
+            "Test Integration",
+            "Test automation"
+        ]
     },
     {
         title: "Tools & Infrastructure",
         icon: Wrench,
-        skills: ["Git", "GitHub", "Docker", "Postman"],
+        skills: ["Git", "GitHub", "Docker", "Postman", "GitHub Actions (CI/CD)", "Linux/WSL", "AWS (EC2, S3, VPC, IAM)", "Terraform"],
     },
+    {
+        title: "AI Tools",
+        icon: CpuAiIcon,
+        skills: [
+            "Claude code",
+            "Codex",
+            "GitHub copilot"
+        ]
+    }
 ];
 
 function Skills() {
